@@ -1,10 +1,10 @@
 {
-  "name": "react-core",
-  "description": "Portable React UI guidelines — URL-driven lists, schema-first forms, sheet CRUD, co-located data ops, and PR review. Core React only; no meta-framework lock-in.",
+  "name": "standard-skills",
+  "description": "GraphLand standard skills — portable React UI guidelines (URL lists, schema-first forms, sheet CRUD, UX hierarchy, PR review). Core React; no meta-framework lock-in.",
   "version": "0.1.0",
   "author": {
     "name": "GraphLand",
-    "url": "https://github.com/graphland-dev"
+    "url": "https://github.com/graphland-dev/standard-skills"
   },
   "skills": [
     "./skills/frontend/react-patterns",

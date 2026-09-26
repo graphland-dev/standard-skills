@@ -1,20 +1,20 @@
-# React Core Skills
+# Standard Skills
 
-Portable **React UI engineering guidelines**, packaged as agent skills. **Primary samples cover common product UI patterns** (URL lists, `FormSheetShell`, controlled+Zod forms, `ServerFormError`). Core React — no Next.js/Vite lock-in. RHF is documented as an alternate form stack.
+Portable engineering guidelines as agent skills — **judgment and contracts**, not stack scaffolds.
 
-Contrast with [graphland-dev/skills](https://github.com/graphland-dev/skills): that pack scaffolds a specific GraphLand stack. This pack teaches **judgment and contracts**.
+**Frontend (React-core)** is included first: URL lists, `FormSheetShell`, controlled+Zod forms, `ServerFormError`, UX hierarchy. No Next.js/Vite lock-in. RHF is an alternate form stack.
+
+Contrast with [graphland-dev/skills](https://github.com/graphland-dev/skills): that pack scaffolds a specific GraphLand stack. This pack ([graphland-dev/standard-skills](https://github.com/graphland-dev/standard-skills)) teaches portable patterns.
 
 ## Install
 
 ```bash
-npx skills add graphland-dev/react-skills --all -y
-npx skills add graphland-dev/react-skills --all -a cursor -y # Cursor only
-npx skills add graphland-dev/react-skills --all -g -y # global
-npx skills add graphland-dev/react-skills --list
+npx skills add graphland-dev/standard-skills --all -y
+npx skills add graphland-dev/standard-skills --all -a cursor -y   # Cursor only
+npx skills add graphland-dev/standard-skills --all -g -y          # global
+npx skills add graphland-dev/standard-skills --list
+npx skills update -g                                             # update a global install later
 ```
-
-> Until published under that name, install from a local clone or your fork:
-> `npx skills add /absolute/path/to/this/repo --all -y`
 
 ### Invoking a skill
 
@@ -61,6 +61,7 @@ Use react-review on this branch — focus on URL state and mutation invalidation
 
 ## Maintaining this repo
 
-- Keep skills **React-core**: no App Router, RSC, `use server`, or bundler recipes as requirements.
+- Keep frontend skills **React-core**: no App Router, RSC, `use server`, or bundler recipes as requirements.
 - Optional **Adapters** sections may mention common libraries (RHF, Zod, TanStack Query, etc.) as examples only.
 - Prefer short `SKILL.md` + `references/` progressive disclosure over mega-files.
+- Repo: https://github.com/graphland-dev/standard-skills
