@@ -33,7 +33,7 @@ Portable React UI contracts for product apps. Prefer the host project’s existi
 4. **Honest async UX** — loading / empty / error. Saves: clear → validate → mutate; `onError` → **top `ServerFormError`**; success → `AppToast.success` then close. Never toast API failures.
 5. **Confirm destructive actions** — `useConfirmation`.
 6. **Visual hierarchy** — soft secondaries, spacing scale, fewer borders, designed empty states (see [references/ux.md](references/ux.md)).
-7. **Share only when shared** — start feature-local; don’t invent `components/SharedX` for one call site (see [references/components.md](references/components.md)).
+7. **Share only when shared** — start feature-local; don’t invent `components/SharedX` for one call site. Once shared, extend by composition (open/closed) — see [references/components.md](references/components.md).
 8. **shadcn: wrap, don’t fork** — CLI into `ui/`; forms use `FormField*` (see [references/shadcn.md](references/shadcn.md)).
 9. **Adapt to the host** — don’t invent a second list/form kit when one exists.
 

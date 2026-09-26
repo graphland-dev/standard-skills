@@ -54,6 +54,7 @@ Review against `react-patterns`. Don’t invent stack migrations (e.g. “rewrit
 - [ ] No unnecessary sync `useEffect` for derived values
 - [ ] Stable list keys (entity ids)
 - [ ] No single-use “shared” components — start feature-local ([components.md](../react-patterns/references/components.md))
+- [ ] Shared UI extended by wrap/compose, not one-off edits inside primitives
 - [ ] shadcn: no casual `ui/` forks; fields via `FormField*` ([shadcn.md](../react-patterns/references/shadcn.md))
 
 ### UX

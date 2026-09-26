@@ -45,7 +45,9 @@ Use context for ambient dependencies (theme, auth session handle, i18n). Don’t
 
 ## Shared components
 
-Don’t extract to a global `components/` folder for a single consumer. Start next to the feature; promote only when reuse is real. See [components.md](components.md).
+Don’t extract to a global `components/` folder for a single consumer. Start next to the feature; promote only when reuse is real.
+
+Once shared: **open/closed** — extend by wrapping/composing (`className`, `children`, slots); don’t edit the shared file for one screen. See [components.md](components.md).
 
 ## Lists and keys
 
