@@ -43,6 +43,10 @@ const { data } = useQuery({ queryKey: ["invoices", sp], queryFn: () => listInvoi
 
 Use context for ambient dependencies (theme, auth session handle, i18n). Don’t use context as a dumping ground for feature business state that only one subtree needs — lift state or colocate a hook instead.
 
+## Shared components
+
+Don’t extract to a global `components/` folder for a single consumer. Start next to the feature; promote only when reuse is real. See [components.md](components.md).
+
 ## Lists and keys
 
 Stable `key`s from entity ids. Avoid index keys when the list can reorder, filter, or paginate.

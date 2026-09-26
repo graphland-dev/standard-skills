@@ -19,6 +19,7 @@ Portable React UI contracts for product apps. Prefer the host project’s existi
 | Forms | Create/edit — controlled+Zod (default) | `react-forms` · [references/forms.md](references/forms.md) |
 | Overlays | FormSheetShell, confirms | `react-overlays` · [references/overlays.md](references/overlays.md) |
 | Data ops | Mutations, cache, server banner, AppToast | [references/data-ops.md](references/data-ops.md) |
+| Components | Share only when shared — no premature abstractions | [references/components.md](references/components.md) |
 | UX | Hierarchy, spacing, type, empty states | `react-ux` · [references/ux.md](references/ux.md) |
 | Hygiene | Effects, derived state, keys | [references/hygiene.md](references/hygiene.md) |
 | Review | PR against these contracts | `react-review` |
@@ -31,7 +32,8 @@ Portable React UI contracts for product apps. Prefer the host project’s existi
 4. **Honest async UX** — loading / empty / error. Saves: clear → validate → mutate; `onError` → **top `ServerFormError`**; success → `AppToast.success` then close. Never toast API failures.
 5. **Confirm destructive actions** — `useConfirmation`.
 6. **Visual hierarchy** — soft secondaries, spacing scale, fewer borders, designed empty states (see [references/ux.md](references/ux.md)).
-7. **Adapt to the host** — don’t invent a second list/form kit when one exists.
+7. **Share only when shared** — start feature-local; don’t invent `components/SharedX` for one call site (see [references/components.md](references/components.md)).
+8. **Adapt to the host** — don’t invent a second list/form kit when one exists.
 
 ## Mini example
 
@@ -66,6 +68,7 @@ const [sheetOpen, setSheetOpen] = useState(false);
 | API failure | `ServerFormError` (not error toast) |
 | Save success | `AppToast.success` |
 | Noisy / flat UI | Hierarchy + spacing rules in `react-ux` |
+| New UI abstraction | Feature-local first — [components.md](references/components.md) |
 
 ## Adapters
 

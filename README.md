@@ -32,14 +32,14 @@ Review this PR with react-review.
 
 ### `frontend/` — core React UI
 
-| Skill | What it does |
-| --- | --- |
+| Skill            | What it does                                                                                         |
+| ---------------- | ---------------------------------------------------------------------------------------------------- |
 | `react-patterns` | Guideline — URL list state, sheets, forms, data ops, UX hierarchy, hygiene. Auto-load when relevant. |
-| `react-forms` | Schema-first forms, create/edit one component, field UX, submit errors. |
-| `react-lists` | Server-paginated lists, URL-synced page/sort/search/filters, debounce. |
-| `react-overlays` | Sheet / modal / route decision tree, reset-on-open, focus. |
-| `react-ux` | Visual hierarchy, spacing, type, color, empty states (Refactoring UI–inspired). |
-| `react-review` | PR/diff checklist against these guidelines. |
+| `react-forms`    | Schema-first forms, create/edit one component, field UX, submit errors.                              |
+| `react-lists`    | Server-paginated lists, URL-synced page/sort/search/filters, debounce.                               |
+| `react-overlays` | Sheet / modal / route decision tree, reset-on-open, focus.                                           |
+| `react-ux`       | Visual hierarchy, spacing, type, color, empty states (Refactoring UI–inspired).                      |
+| `react-review`   | PR/diff checklist against these guidelines.                                                          |
 
 ## Sample prompts
 
@@ -58,10 +58,4 @@ Use react-review on this branch — focus on URL state and mutation invalidation
 3. **Schema-first forms** — one schema drives validation + types; create and edit share one form.
 4. **Co-locate data ops** — queries/mutations/schema live next to the feature, not in a global grab-bag.
 5. **Adapt, don't dictate** — prefer the project's existing libs; these skills describe contracts, not a mandated stack.
-
-## Maintaining this repo
-
-- Keep frontend skills **React-core**: no App Router, RSC, `use server`, or bundler recipes as requirements.
-- Optional **Adapters** sections may mention common libraries (RHF, Zod, TanStack Query, etc.) as examples only.
-- Prefer short `SKILL.md` + `references/` progressive disclosure over mega-files.
-- Repo: https://github.com/graphland-dev/standard-skills
+6. **Share only when shared** — feature-local UI first; no single-use “shared” components.

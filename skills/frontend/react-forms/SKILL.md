@@ -100,6 +100,7 @@ See [forms.md](../react-patterns/references/forms.md) § Alternate. Same banner-
 - Error toasts for API failures
 - Closing sheet on `onError`
 - Separate Create / Edit form trees
+- Promoting a one-use form into global `components/` — keep form body feature-local ([components.md](../react-patterns/references/components.md))
 
 ## Done checklist
 

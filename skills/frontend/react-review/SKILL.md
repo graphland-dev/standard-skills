@@ -53,6 +53,7 @@ Review against `react-patterns`. Don’t invent stack migrations (e.g. “rewrit
 
 - [ ] No unnecessary sync `useEffect` for derived values
 - [ ] Stable list keys (entity ids)
+- [ ] No single-use “shared” components — start feature-local ([components.md](../react-patterns/references/components.md))
 
 ### UX
 
