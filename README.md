@@ -2,7 +2,7 @@
 
 Portable engineering guidelines as agent skills — **judgment and contracts**, not stack scaffolds.
 
-**Frontend (React-core)** is included first: URL lists, `FormSheetShell`, controlled+Zod forms, `ServerFormError`, UX hierarchy. No Next.js/Vite lock-in. RHF is an alternate form stack.
+**Frontend (React-core)** and **backend (framework-agnostic API)** packs. Patterns are portable: Nest/GraphQL/Mongoose/etc. appear only as optional adapters. RHF is an alternate form stack on the FE side.
 
 Contrast with [graphland-dev/skills](https://github.com/graphland-dev/skills): that pack scaffolds a specific GraphLand stack. This pack ([graphland-dev/standard-skills](https://github.com/graphland-dev/standard-skills)) teaches portable patterns.
 
@@ -29,7 +29,7 @@ Project installs land under agent skill dirs the CLI detects (commonly `.agents/
 
 1. Install as above from the repo root.
 2. Point agents at the pack from root **`AGENTS.md`** (always-on context). Skills stay **on-demand** — don’t paste full `SKILL.md` bodies into `AGENTS.md`.
-3. In chat, name the skill: `Use react-forms for this sheet`, `/react-review`, etc.
+3. In chat, name the skill: `Use react-forms for this sheet`, `/api-review`, etc.
 
 #### `AGENTS.md` snippet
 
@@ -42,7 +42,7 @@ Install once per clone:
 
     npx skills add graphland-dev/standard-skills --all -y
 
-For React UI work, load these skills instead of inventing patterns:
+### Frontend (React)
 
 | Skill | When |
 | --- | --- |
@@ -54,10 +54,18 @@ For React UI work, load these skills instead of inventing patterns:
 | `react-ux` | Visual hierarchy, spacing, empty states |
 | `react-review` | PR / diff checklist |
 
-Prefer naming the skill in the prompt (`Use react-lists…`). Match the host stack; don’t migrate form libraries unprompted.
+### Backend (API)
+
+| Skill | When |
+| --- | --- |
+| `api-patterns` | Default guideline — tenancy, validation, pagination, errors, auth |
+| `api-modules` | Scaffolding a new feature module |
+| `api-review` | PR / module audit (TENANT / AUTH / ERR / …) |
+
+Prefer naming the skill in the prompt (`Use react-lists…`, `Use api-patterns…`). Match the host stack; don’t migrate frameworks unprompted.
 ````
 
-If the app already has project-specific skills (e.g. under `.agents/skills/`), list those first and say: when a pattern isn’t covered there, follow **standard-skills** (`react-patterns`, …).
+If the app already has project-specific skills (e.g. under `.agents/skills/`), list those first and say: when a pattern isn’t covered there, follow **standard-skills** (`react-patterns`, `api-patterns`, …).
 
 ### Invoking a skill
 
@@ -67,9 +75,12 @@ Standard [Agent Skills](https://agentskills.io) — name the skill in plain lang
 Use react-patterns for this list page.
 Fix the form with react-forms.
 Review this PR with react-review.
+Use api-patterns + tenancy for this mutation.
+Scaffold the invoice feature with api-modules.
+Audit this module with api-review.
 ```
 
-`react-patterns` is the auto-load guideline; siblings go deep when named.
+`react-patterns` / `api-patterns` are the auto-load guidelines; siblings go deep when named.
 
 ## What's inside
 
@@ -85,6 +96,16 @@ Review this PR with react-review.
 | `react-shadcn`   | shadcn/ui — ui/form/reui layers, CLI add, FormField wraps, cn(), when not to add.                    |
 | `react-review`   | PR/diff checklist against these guidelines.                                                          |
 
+### `backend/` — framework-agnostic API
+
+| Skill          | What it does                                                                              |
+| -------------- | ----------------------------------------------------------------------------------------- |
+| `api-patterns` | Guideline — layout, tenancy, validation, pagination, auth, errors, side effects. Auto-load when relevant. |
+| `api-modules`  | Feature scaffold checklist (DTO → service → transport → catalog).                         |
+| `api-review`   | TENANT / AUTH / ERR / LAY / PAGE / SIDE review flags.                                     |
+
+Nest/GraphQL/Mongo mappings live only under `api-patterns/references/adapters.md`.
+
 ## Sample prompts
 
 ```
@@ -95,9 +116,15 @@ Add create/edit for Invoice as a sheet (one form component). Follow react-overla
 Use react-shadcn — add a FormField wrapper, don’t edit ui/input.tsx.
 
 Use react-review on this branch — focus on URL state and mutation invalidation.
+
+Add invoice list+create with api-modules; scope every query with api-patterns tenancy.
+
+Use api-review on this module — check TENANT and ERR.
 ```
 
 ## Principles (one-liner)
+
+**Frontend**
 
 1. **URL owns list state** — page, sort, search, filters are shareable and reload-safe.
 2. **Sheets over routes for simple CRUD** — keep list context; reserve full pages for complex entities.
@@ -107,3 +134,13 @@ Use react-review on this branch — focus on URL state and mutation invalidation
 6. **Share only when shared** — feature-local UI first; no single-use “shared” components.
 7. **Open/closed for shared UI** — extend by wrap/compose; don’t edit shared primitives for one screen.
 8. **shadcn: wrap, don’t fork** — CLI into `ui/`; product fields via `FormField*`.
+
+**Backend**
+
+1. **Co-locate features** — transport + service + inputs in one folder.
+2. **Tenancy from auth context** — never trust body-only org ids; scope every query.
+3. **Validate at the boundary** — inputs ≠ entities; whitelist unknowns.
+4. **One list contract** — `{ nodes, meta }` (or host equivalent).
+5. **Thin transport** — rules in services; structured `code` + `message` errors.
+6. **Policy-driven AuthZ** — catalog every operation; UI hide ≠ security.
+7. **Side effects after write** — mail/queues/events after durable success.

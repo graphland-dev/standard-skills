@@ -1,7 +1,7 @@
 {
   "name": "standard-skills",
-  "description": "GraphLand standard skills — portable React UI guidelines (URL lists, schema-first forms, sheet CRUD, UX hierarchy, PR review). Core React; no meta-framework lock-in.",
-  "version": "0.1.0",
+  "description": "Portable React + framework-agnostic API engineering skills for agent workflows. Core React and API contracts; no meta-framework or Nest lock-in.",
+  "version": "0.2.0",
   "author": {
     "name": "GraphLand",
     "url": "https://github.com/graphland-dev/standard-skills"
@@ -13,6 +13,9 @@
     "./skills/frontend/react-overlays",
     "./skills/frontend/react-ux",
     "./skills/frontend/react-shadcn",
-    "./skills/frontend/react-review"
+    "./skills/frontend/react-review",
+    "./skills/backend/api-patterns",
+    "./skills/backend/api-modules",
+    "./skills/backend/api-review"
   ]
 }
