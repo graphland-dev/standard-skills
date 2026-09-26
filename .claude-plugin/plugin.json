@@ -1,0 +1,17 @@
+{
+  "name": "react-core",
+  "description": "Portable React UI guidelines — URL-driven lists, schema-first forms, sheet CRUD, co-located data ops, and PR review. Core React only; no meta-framework lock-in.",
+  "version": "0.1.0",
+  "author": {
+    "name": "GraphLand",
+    "url": "https://github.com/graphland-dev"
+  },
+  "skills": [
+    "./skills/frontend/react-patterns",
+    "./skills/frontend/react-forms",
+    "./skills/frontend/react-lists",
+    "./skills/frontend/react-overlays",
+    "./skills/frontend/react-ux",
+    "./skills/frontend/react-review"
+  ]
+}
