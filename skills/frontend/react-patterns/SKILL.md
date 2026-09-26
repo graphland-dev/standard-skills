@@ -20,6 +20,7 @@ Portable React UI contracts for product apps. Prefer the host project’s existi
 | Overlays | FormSheetShell, confirms | `react-overlays` · [references/overlays.md](references/overlays.md) |
 | Data ops | Mutations, cache, server banner, AppToast | [references/data-ops.md](references/data-ops.md) |
 | Components | Share only when shared — no premature abstractions | [references/components.md](references/components.md) |
+| shadcn | ui/form/reui layers, CLI add, FormField wraps | `react-shadcn` · [references/shadcn.md](references/shadcn.md) |
 | UX | Hierarchy, spacing, type, empty states | `react-ux` · [references/ux.md](references/ux.md) |
 | Hygiene | Effects, derived state, keys | [references/hygiene.md](references/hygiene.md) |
 | Review | PR against these contracts | `react-review` |
@@ -33,7 +34,8 @@ Portable React UI contracts for product apps. Prefer the host project’s existi
 5. **Confirm destructive actions** — `useConfirmation`.
 6. **Visual hierarchy** — soft secondaries, spacing scale, fewer borders, designed empty states (see [references/ux.md](references/ux.md)).
 7. **Share only when shared** — start feature-local; don’t invent `components/SharedX` for one call site (see [references/components.md](references/components.md)).
-8. **Adapt to the host** — don’t invent a second list/form kit when one exists.
+8. **shadcn: wrap, don’t fork** — CLI into `ui/`; forms use `FormField*` (see [references/shadcn.md](references/shadcn.md)).
+9. **Adapt to the host** — don’t invent a second list/form kit when one exists.
 
 ## Mini example
 
@@ -78,5 +80,6 @@ const [sheetOpen, setSheetOpen] = useState(false);
 | Forms | `useState` + `safeParse` | RHF + `Controller` |
 | Sheets | `FormSheetShell` | Controlled Sheet + `formId` |
 | Server errors | `useServerErrors` + `ServerFormError` | `useState` + `FormError` |
+| Design system | shadcn `ui/` + `FormField*` wraps | See [shadcn.md](references/shadcn.md) |
 
 See [references/adapters.md](references/adapters.md).

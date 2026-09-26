@@ -3,7 +3,7 @@
 **Default:** `useState` + Zod `safeParse` + presentational `FormField*` + `ServerFormError` at top.  
 **Alternate:** RHF + `Controller` (use when the host already does — not for default sheet CRUD).
 
-Match the host. Don’t switch form stacks unless asked.
+`FormField*` wrap shadcn primitives — see [shadcn.md](shadcn.md). Match the host. Don’t switch form stacks unless asked.
 
 ## Shared contracts
 

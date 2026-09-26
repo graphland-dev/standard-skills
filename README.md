@@ -8,13 +8,56 @@ Contrast with [graphland-dev/skills](https://github.com/graphland-dev/skills): t
 
 ## Install
 
+From your **project root** (recommended — skills are committed and shared with the team):
+
 ```bash
 npx skills add graphland-dev/standard-skills --all -y
 npx skills add graphland-dev/standard-skills --all -a cursor -y   # Cursor only
-npx skills add graphland-dev/standard-skills --all -g -y          # global
 npx skills add graphland-dev/standard-skills --list
-npx skills update -g                                             # update a global install later
 ```
+
+Global (every project on your machine):
+
+```bash
+npx skills add graphland-dev/standard-skills --all -g -y
+npx skills update -g
+```
+
+Project installs land under agent skill dirs the CLI detects (commonly `.agents/skills/`, and/or `.cursor/skills/`, `.claude/skills/`, …). Commit those paths (or the symlinks the CLI creates) so teammates get the same skills.
+
+### Use in a project
+
+1. Install as above from the repo root.
+2. Point agents at the pack from root **`AGENTS.md`** (always-on context). Skills stay **on-demand** — don’t paste full `SKILL.md` bodies into `AGENTS.md`.
+3. In chat, name the skill: `Use react-forms for this sheet`, `/react-review`, etc.
+
+#### `AGENTS.md` snippet
+
+Add (or merge) something like this at the repo root:
+
+````markdown
+## Agent skills
+
+Install once per clone:
+
+    npx skills add graphland-dev/standard-skills --all -y
+
+For React UI work, load these skills instead of inventing patterns:
+
+| Skill | When |
+| --- | --- |
+| `react-patterns` | Default guideline — lists, sheets, forms, data ops, UX, shadcn |
+| `react-lists` | URL-driven tables / search / filters |
+| `react-forms` | Create/edit forms, validation, server errors |
+| `react-overlays` | Sheets vs routes, confirms |
+| `react-shadcn` | Adding or wrapping shadcn/ui components |
+| `react-ux` | Visual hierarchy, spacing, empty states |
+| `react-review` | PR / diff checklist |
+
+Prefer naming the skill in the prompt (`Use react-lists…`). Match the host stack; don’t migrate form libraries unprompted.
+````
+
+If the app already has project-specific skills (e.g. under `.agents/skills/`), list those first and say: when a pattern isn’t covered there, follow **standard-skills** (`react-patterns`, …).
 
 ### Invoking a skill
 
@@ -39,6 +82,7 @@ Review this PR with react-review.
 | `react-lists`    | Server-paginated lists, URL-synced page/sort/search/filters, debounce.                               |
 | `react-overlays` | Sheet / modal / route decision tree, reset-on-open, focus.                                           |
 | `react-ux`       | Visual hierarchy, spacing, type, color, empty states (Refactoring UI–inspired).                      |
+| `react-shadcn`   | shadcn/ui — ui/form/reui layers, CLI add, FormField wraps, cn(), when not to add.                    |
 | `react-review`   | PR/diff checklist against these guidelines.                                                          |
 
 ## Sample prompts

@@ -3,12 +3,13 @@ name: react-forms
 description: >-
   Schema-first React forms — useState + Zod safeParse + FormField* +
   ServerFormError + FormSheetShell. RHF Controllers as alternate. Use when
-  building or fixing create/edit forms, form sheets, or validation UX.
+  building or fixing create/edit forms, form sheets, or validation UX. For
+  shadcn FormField wrappers and ui/ layering, see react-shadcn.
 ---
 
 # React Forms
 
-Parent: `react-patterns`. Full samples: [forms.md](../react-patterns/references/forms.md).
+Parent: `react-patterns`. Full samples: [forms.md](../react-patterns/references/forms.md). shadcn layering: `react-shadcn`.
 
 Default samples use controlled + Zod. Use RHF only when the host already does.
 

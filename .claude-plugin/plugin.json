@@ -12,6 +12,7 @@
     "./skills/frontend/react-lists",
     "./skills/frontend/react-overlays",
     "./skills/frontend/react-ux",
+    "./skills/frontend/react-shadcn",
     "./skills/frontend/react-review"
   ]
 }
