@@ -77,7 +77,7 @@ Review this PR with react-review.
 
 | Skill            | What it does                                                                                         |
 | ---------------- | ---------------------------------------------------------------------------------------------------- |
-| `react-patterns` | Guideline — URL list state, sheets, forms, data ops, UX hierarchy, hygiene. Auto-load when relevant. |
+| `react-patterns` | Guideline — lists, sheets, forms, data ops, share-vs-local, open/closed, UX, hygiene. Auto-load when relevant. |
 | `react-forms`    | Schema-first forms, create/edit one component, field UX, submit errors.                              |
 | `react-lists`    | Server-paginated lists, URL-synced page/sort/search/filters, debounce.                               |
 | `react-overlays` | Sheet / modal / route decision tree, reset-on-open, focus.                                           |
@@ -92,6 +92,8 @@ The product table refetches on every keystroke. Fix search using react-lists / r
 
 Add create/edit for Invoice as a sheet (one form component). Follow react-overlays + react-forms.
 
+Use react-shadcn — add a FormField wrapper, don’t edit ui/input.tsx.
+
 Use react-review on this branch — focus on URL state and mutation invalidation.
 ```
 
@@ -103,3 +105,5 @@ Use react-review on this branch — focus on URL state and mutation invalidation
 4. **Co-locate data ops** — queries/mutations/schema live next to the feature, not in a global grab-bag.
 5. **Adapt, don't dictate** — prefer the project's existing libs; these skills describe contracts, not a mandated stack.
 6. **Share only when shared** — feature-local UI first; no single-use “shared” components.
+7. **Open/closed for shared UI** — extend by wrap/compose; don’t edit shared primitives for one screen.
+8. **shadcn: wrap, don’t fork** — CLI into `ui/`; product fields via `FormField*`.
