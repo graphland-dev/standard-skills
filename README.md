@@ -122,6 +122,90 @@ Add invoice list+create with api-modules; scope every query with api-patterns te
 Use api-review on this module — check TENANT and ERR.
 ```
 
+## Prompt templates (backend + frontend)
+
+### Backend prompt template
+
+```text
+You are a senior backend engineer.
+
+Goal:
+Build [FEATURE_NAME] for [PROJECT_NAME].
+
+Tech/context:
+- Language/framework: [e.g., Node.js + Express]
+- Database: [e.g., PostgreSQL]
+- Architecture constraints: [monolith/microservice, folder structure]
+- Existing modules to reuse: [list]
+
+Requirements:
+- Functional: [clear bullets]
+- Validation rules: [rules]
+- Error handling: [expected behavior]
+- Security: [auth/authz, input sanitization, rate limit]
+- Performance: [latency/throughput target]
+
+Deliverables:
+1) API contract (request/response + status codes)
+2) Data model changes (migrations if needed)
+3) Service/repository logic
+4) Unit/integration tests
+5) Example curl/Postman request
+
+Output format:
+- First: implementation plan
+- Then: code changes by file
+- Then: tests
+- Then: run/verify steps
+```
+
+### Frontend prompt template
+
+```text
+You are a senior frontend engineer.
+
+Goal:
+Implement [FEATURE_NAME] in [PROJECT_NAME].
+
+Tech/context:
+- Framework: [React/Vue/Angular]
+- State management: [Redux/Zustand/etc]
+- Styling system: [Tailwind/CSS Modules/etc]
+- Existing components/hooks to reuse: [list]
+
+Requirements:
+- UI behavior: [states, interactions]
+- Data requirements: [API endpoints + payloads]
+- Validation & errors: [form rules, inline errors]
+- Accessibility: [keyboard nav, aria labels]
+- Responsive behavior: [mobile/tablet/desktop]
+
+Deliverables:
+1) Component structure
+2) State/data flow
+3) API integration
+4) Loading/empty/error states
+5) Tests (unit/component/e2e where relevant)
+
+Output format:
+- First: implementation plan
+- Then: code by file
+- Then: tests
+- Then: manual QA checklist
+```
+
+### Prompting guideline: gradually build features
+
+1. Scope only — ask for user story, acceptance criteria, and out-of-scope items.
+2. Design — ask for API/UI contract only (no code yet).
+3. Skeleton — ask for file structure and stubs/placeholders.
+4. Happy path — ask for minimal end-to-end working flow.
+5. Edge cases — ask for validation, errors, empty/loading states.
+6. Security and performance — ask for auth checks, sanitization, and optimization points.
+7. Tests — ask for unit + integration/e2e coverage.
+8. Refactor — ask for cleanup, naming, and duplication removal.
+9. Release readiness — ask for QA checklist, rollout, and monitoring.
+
 ## Principles (one-liner)
 
 **Frontend**
